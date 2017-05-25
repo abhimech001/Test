@@ -1,0 +1,22 @@
+package selenium;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class MaerskHome {
+	
+	public static void main(String[] args)
+	{
+	String exePath = "C:\\Users\\Amritkant\\Desktop\\chromedriver_win32\\chromedriver.exe";
+	System.setProperty("webdriver.chrome.driver", exePath);
+	WebDriver driver = new ChromeDriver();
+	driver.get("https://my.maerskline.com/homepage/");
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//*[@id='homepage__tracking__input']")).sendKeys("ABCD");
+	driver.findElement(By.xpath("//*[@id='homepage__tracking__search']")).click();
+	driver.quit();
+	}
+}
